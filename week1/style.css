@@ -1,0 +1,134 @@
+* {
+ font-size: 20px;
+ color: #000;
+ list-style: none;
+ text-decoration: none;
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image{
+    overflow: hidden;
+}
+:root{
+    --basic-color: #d1effa;
+    --sub-color: #e5f7dbc5;
+    --base-space: 10px;
+}
+
+
+/* menu area */
+.menu{
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 40px;
+}
+.menu .nav{
+    display: flex;
+    outline: 1px solid red;
+}
+.menu .logo,
+.nav > li {
+    padding: 0px 15px;
+}
+
+/* banner area */
+.banner {
+    background: var(--basic-color);
+    height: 250px;
+    position: relative;
+}
+.banner .topic{
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* mainContent area */
+.mainContent{
+    padding: calc(var(--base-space) * 2);
+}
+
+/* smallBoxArea area */
+.smallBoxArea{
+    display: flex;
+}
+.smallBox{
+    flex: 1;
+    margin: var(--base-space);
+    display: flex;
+}
+.smallBox .image img{
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+}
+.smallBox .text{
+    line-height: 50px;
+    flex: 1;
+    background: var(--basic-color);
+    padding-left: var(--base-space);
+}
+
+/* bigBoxArea area */
+.bigBoxArea{
+    display: flex;
+    flex-wrap: wrap;
+}
+.bigBox .image {
+    height: 100%;
+}
+.bigBox {
+    flex: 2;
+    min-width: calc(100% / 6);
+    margin: var(--base-space);
+    position: relative;
+}
+.bigBox:nth-child(5n + 1){
+    flex: 4;
+}
+.bigBox .text {
+    background: var(--sub-color);
+    padding: var(--base-space);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.bigBox .icon {
+    width: 20px;
+    position: absolute;
+    top: var(--base-space);
+    right: var(--base-space);
+}
+
+/* Small Size */
+@media screen and (max-width: 600px) {
+    
+}
+
+/* Medium Size */
+@media screen and (max-width: 1200px) {
+    
+}
+
+/* Large Size */
+@media screen and (max-width: 1920px) {
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        outline: 1px solid red;
+        /* padding: 10px; */
+    }
+}
