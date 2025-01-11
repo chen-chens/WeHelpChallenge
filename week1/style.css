@@ -175,12 +175,16 @@ img{
         display: block;
     }
     .menu .navMenu.show{
-        display: block;
+        right: 0;
     }
     .menu .navMenu.hide{
+        right: -200px;
+    }
+    .menu .navMenu.hide .closeMenu{
         display: none;
     }
     .menu .navMenu{
+        display: block;
         width: 200px;
         border-left: 1px solid #dedede;
         box-shadow: -5px 0px 10px #00000021;
@@ -189,7 +193,7 @@ img{
         right: 0;
         top: 0;
         bottom: 0;
-        transition: all 0.5s;
+        transition: all 0.3s;
         z-index: 1;
     }
     .navMenu .closeMenu{
