@@ -9,11 +9,19 @@
 <body>
     <header class="menu">
         <h1 class="logo">My Website</h1>
-        <nav class="nav">
-            <li><a href="#">Item1</a></li>
-            <li><a href="#">Item2</a></li>
-            <li><a href="#">Item3</a></li>
-            <li><a href="#">Item4</a></li>
+        <a id="burgerMenu" class="burgerMenu">
+            <img src="./icons/icon_menu.svg" alt="burgerMenu">
+        </a>
+        <nav id="navMenu" class="navMenu">
+            <ul class="nav">
+                <li><a href="#">Item1</a></li>
+                <li><a href="#">Item2</a></li>
+                <li><a href="#">Item3</a></li>
+                <li><a href="#">Item4</a></li>
+            </ul>
+            <a id="closeMenu" class="closeMenu">
+                <img src="./icons/icon_close.svg" alt="close">
+            </a>
         </nav>
     </header>
 
@@ -60,7 +68,7 @@
                         Title1
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -71,7 +79,7 @@
                         Title2
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -82,7 +90,7 @@
                         Title3
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -93,7 +101,7 @@
                         Title4
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -104,7 +112,7 @@
                         Title5
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -115,7 +123,7 @@
                         Title6
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -126,7 +134,7 @@
                         Title7
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -137,7 +145,7 @@
                         Title8
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -148,7 +156,7 @@
                         Title9
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
                 <div class="bigBox">
@@ -159,11 +167,24 @@
                         Title10
                     </p>
                     <div class="icon">
-                        <img src="./icon_star.svg">
+                        <img src="./icons/icon_star.svg">
                     </div>
                 </div>
             </section>
         </div>
     </article>
 </body>
+<script>
+    const burgerMenu = document.getElementById("burgerMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const navMenu = document.getElementById("navMenu");
+    burgerMenu.addEventListener('click', () => {
+        navMenu.classList.add('show');
+        navMenu.classList.remove('hide');
+    });
+    closeMenu.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        navMenu.classList.add('hide');
+    })
+</script>
 </html>
