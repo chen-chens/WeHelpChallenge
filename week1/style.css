@@ -19,13 +19,14 @@ img{
 :root{
     --basic-color: #d1effa;
     --sub-color: #e5f7dbc5;
+    --basic-gray-color: #dedede;
     --base-space: 10px;
 }
 
 
 /* menu area */
 .menu{
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid var(--basic-gray-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -72,7 +73,6 @@ img{
 }
 .container {
     margin: auto;
-    /* outline: 1px solid red; */
 }
 
 /* smallBoxArea area */
@@ -174,23 +174,22 @@ img{
     .menu .burgerMenu{
         display: block;
     }
-    .menu .navMenu.show{
+    .menu .navMenu.show,
+    .menu .navMenu.show .closeMenu{
         right: 0;
     }
-    .menu .navMenu.hide{
-        right: -200px;
-    }
+    .menu .navMenu.hide,
     .menu .navMenu.hide .closeMenu{
-        display: none;
+        right: -200px;
     }
     .menu .navMenu{
         display: block;
         width: 200px;
-        border-left: 1px solid #dedede;
+        border-left: 1px solid var(--basic-gray-color);
         box-shadow: -5px 0px 10px #00000021;
-        background-color: antiquewhite;
+        background-color: #fff;
         position: fixed;
-        right: 0;
+        right: -200px;
         top: 0;
         bottom: 0;
         transition: all 0.3s;
@@ -199,7 +198,7 @@ img{
     .navMenu .closeMenu{
         display: block;
         position: fixed;
-        right: 0;
+        right: -200px;
         top: 0;
     }
     .navMenu .nav{
