@@ -19,23 +19,23 @@ function func(...data){
                 mapData.set(value, value.slice(-2, -1));
             break;
             default:
-                const targetInedex = (value.length - 1) / 2;
-                mapData.set(value, value.split('')[targetInedex]);
+                const targetIndex = (value.length - 1) / 2;
+                mapData.set(value, value.split('')[targetIndex]);
         }
     });
     
     const middleNames = Array.from(mapData.values());
-    const uniqueName = [];
+    const uniqueNames = [];
     mapData.forEach((value, key) => {
         const counts = middleNames.filter(name => name === value).length;
         if(counts === 1){
-            uniqueName.push(key) 
+            uniqueNames.push(key) 
         }
     });
-    if(uniqueName.length === 0){
+    if(uniqueNames.length === 0){
         console.log("沒有");
     }else{
-        console.log(uniqueName.join());
+        console.log(uniqueNames.join());
     }
 }
 func("彭大牆", "陳王明雅", "吳明"); // print 彭大牆
