@@ -50,7 +50,7 @@ function book(consultants, hour, duration, criteria){
             avaiables.push(item);
         }else{
             const filtered = hasBookedConsultants.filter(consultant => consultant.name === item.name);
-            const isAvaiable = filtered.every(consultant => (endHour < consultant.startHour || startHour > consultant.endHour));
+            const isAvaiable = filtered.every(consultant => (endHour <= consultant.startHour || startHour >= consultant.endHour));
 
             if(isAvaiable){
                 avaiables.push(item);
