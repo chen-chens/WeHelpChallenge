@@ -74,9 +74,10 @@ function findAndPrint(messages, currentStation){
         }
 
         // console.log("🚀 ~ findAndPrint ~ minDistance:", minDistance)
-        if(Math.abs(friendStationIndex - currentStationIndex) + subLineDistance < minDistance){
+        const distance = Math.abs(friendStationIndex - currentStationIndex) + subLineDistance;
+        if(distance < minDistance){
             closestPerson = friend;
-            minDistance = Math.abs(friendStationIndex - currentStationIndex) + subLineDistance;
+            minDistance = distance;
         }
     }
     console.log("🚀  closestPerson:", closestPerson);
