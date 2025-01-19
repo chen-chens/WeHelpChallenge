@@ -24,23 +24,25 @@ def find_and_print(messages, current_station):
         "Xiaobitan"
     ]
 
+    is_in_sub_line = False
     if current_station in green_line:
-        current_station_index = green_line.index(current_station)
+        current_main_station_index = green_line.index(current_station)
     elif current_station in sub_green_line:
-        current_station_index = sub_green_line.index(current_station)
-
-    if current_station_index == -1:
-        print("Invalid current_station")
+        is_in_sub_line = True
+        current_main_station_index = green_line.index(sub_green_line[0])  # 計算主線距離用
 
         
     min_distance = 0
     closestPerson = None
     for friend, message in messages.items():
+        is_friend_in_sub_line = False
         sub_line_distance = 0
         friend_station_on_sub_line_index = -1
 
+        # 先確認是否在副線上
         friend_station_on_sub_line = next((station for station in sub_green_line if station in message), None)
         if friend_station_on_sub_line:
+            is_friend_in_sub_line = True
             friend_station_on_sub_line_index = sub_green_line.index(friend_station_on_sub_line)
 
         # 若是在副線上，計算副線與主線距離
@@ -52,16 +54,23 @@ def find_and_print(messages, current_station):
             friend_station = next((station for station in green_line if station in message), None)
             if friend_station:
                 friend_station_index = green_line.index(friend_station)
-        # print("🚀 ~ findAndPrint ~ friend_station_index:", friend_station_index)
 
-
+        # 初始值
         if closestPerson == None:
             closestPerson = friend
-            min_distance = abs(friend_station_index - current_station_index) + sub_line_distance
+            if(is_in_sub_line and is_friend_in_sub_line):
+                min_distance = sub_line_distance
+            else:
+                min_distance = abs(friend_station_index - current_main_station_index) + sub_line_distance
             continue
 
         # print("🚀 ~ findAndPrint ~ min_distance:", min_distance)
-        distance = abs(friend_station_index - current_station_index) + sub_line_distance
+        if(is_in_sub_line and is_friend_in_sub_line):
+            distance = sub_line_distance
+        else:
+            distance = abs(friend_station_index - current_main_station_index) + sub_line_distance
+
+        # 比較
         if distance < min_distance: 
             closestPerson = friend
             min_distance = distance
@@ -81,7 +90,7 @@ find_and_print(messages, "Songshan") # print Copper
 find_and_print(messages, "Qizhang") # print Leslie
 find_and_print(messages, "Ximen") # print Bob
 find_and_print(messages, "Xindian City Hall") # print Vivian
-
+find_and_print(messages, "Xiaobitan") # print Leslie
 
 # next((station for station in green_line if station in message), None)
 # for station in green_line
